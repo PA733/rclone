@@ -48,8 +48,13 @@ func (f *Fs) SetUploadChunkSize(cs fs.SizeSuffix) (fs.SizeSuffix, error) {
 	return f.setUploadChunkSize(cs)
 }
 
+func (f *Fs) SetCopyCutoff(cs fs.SizeSuffix) (fs.SizeSuffix, error) {
+	return f.setCopyCutoff(cs)
+}
+
 var (
 	_ fstests.SetUploadChunkSizer = (*Fs)(nil)
+	_ fstests.SetCopyCutoffer     = (*Fs)(nil)
 )
 
 func TestValidateAccessTier(t *testing.T) {
